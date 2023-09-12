@@ -48,6 +48,6 @@ public class ProductsController : ControllerBase
     [HttpGet("redirect")]
     public IActionResult Redirect()
     {
-        return Redirect("api/products/1");
+        return Redirect("/api/products/1");
     }
 }
