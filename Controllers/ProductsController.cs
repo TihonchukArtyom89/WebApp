@@ -28,10 +28,14 @@ public class ProductsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> SaveProduct([FromBody] ProductBindingTarget target)
     {
-        Product p = target.ToProduct();
-        await context.Products.AddAsync(p);
-        await context.SaveChangesAsync();
-        return Ok(p);
+        if(ModelState.IsValid)
+        {
+            Product p = target.ToProduct();
+            await context.Products.AddAsync(p);
+            await context.SaveChangesAsync();
+            return Ok(p);
+        }
+        return BadRequest();
     }
     [HttpPut]
     public async Task UpdateProduct([FromBody] Product product)
