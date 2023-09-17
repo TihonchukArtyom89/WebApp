@@ -15,10 +15,11 @@ builder.Services.Configure<MvcNewtonsoftJsonOptions>(opts =>
 {
     opts.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
 });
-//builder.Services.Configure<JsonOptions>(opts => 
-//{
-//    opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-//});
+builder.Services.Configure<MvcOptions>(opts => 
+{
+    opts.RespectBrowserAcceptHeader = true;
+    opts.ReturnHttpNotAcceptable = true;
+});
 var app = builder.Build();
 app.MapControllers();
 //app.UseMiddleware<TestMiddleware>();
