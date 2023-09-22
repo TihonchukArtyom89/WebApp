@@ -16,6 +16,7 @@ public class ContentController : ControllerBase
     [HttpGet("string")]
     public string GetString() => "This is string response.";
     [HttpGet("object")]
+    [Produces("application/json")]
     public async Task<ProductBindingTarget> GetObject()
     {
         Product p= await context.Products.FirstAsync();
