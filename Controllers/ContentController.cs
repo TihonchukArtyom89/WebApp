@@ -23,4 +23,16 @@ public class ContentController : ControllerBase
         Product p= await context.Products.FirstAsync();
         return new ProductBindingTarget() { CategoryId=p.CategoryId,Name=p.Name,Price=p.Price,SupplierId=p.SupplierId};
     }
+    [HttpPost]
+    [Consumes("application/json")]
+    public string SaveProductJson(ProductBindingTarget product)
+    {
+        return $"JSON: {product.Name}";
+    }
+    [HttpPost]
+    [Consumes("application/xml")]
+    public string SaveProductXml(ProductBindingTarget product)
+    {
+        return $"XML: {product.Name}";
+    }
 }
