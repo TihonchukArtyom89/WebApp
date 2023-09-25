@@ -12,6 +12,14 @@ public class HomeController:Controller
     }
     public async Task<IActionResult> Index(long id = 1)
     {
-        return View(await context.Products.FindAsync(id));
+        Product? prod = await context.Products.FindAsync(id);
+        if(prod?.ProductId==1)
+        {
+            return View("Watersports",prod);
+        }
+        else
+        {
+            return View(prod);
+        }
     }
 }
