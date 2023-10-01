@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Product>
+<!DOCTYPE>
+<html>
+<head>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h6 class="bg-secondary text-white text-center m-2 p-2">Products</h6>
+    <div class="m-2">
+        <table class="table table-sm table-stripped table-bordered">
+            <thead>
+                <tr><th>Name</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+                @foreach(Product p in Model ?? Enumerable.Empty<Product>())
+                {
+                    <tr><td>@p.Name</td><td>@p.Price</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
