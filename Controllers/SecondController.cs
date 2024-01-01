@@ -5,9 +5,9 @@ namespace WebApp.Controllers
 {
     public class SecondController : Controller
     {
-        public IActionResult Common()
+        public IActionResult Index()
         {
-            return View();
+            return View("Common");
         }
     }
 }
